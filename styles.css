@@ -1,0 +1,124 @@
+main{
+    width: 90vw;
+    height: 45vw;
+    max-width: 500px;
+    max-height: 250px;
+    margin: auto;
+    margin-top: 50px;
+    position: relative;
+    overflow: hidden;
+    background-color: black;
+}
+main div{
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    position: absolute;
+    border: 1px solid rgb(255, 255, 255);
+}
+img{
+    width: 100%;
+}
+button{
+    position: absolute;
+    height: 100%;
+    z-index: 2;
+    border: none;
+    color: white;
+    font-size: larger;
+    font-weight: bolder;
+    background-color: rgba(0, 0, 0, 0.075);
+    width: 50px;
+    backdrop-filter: blur(8px);
+    display: none;
+}
+#count{
+    text-align: center;
+    font-family: sans-serif;
+}
+main:hover > button{
+    display: block;
+}
+button{
+    height: 100%;
+    filter: blur(0px);
+}
+#r-btn{
+    right: 0px;
+}
+.r-out {
+    animation: r-out 2s;
+    opacity: 0;
+    left: 100%;
+    z-index: 1;
+}
+.r-in {
+    animation: r-in 2s;
+    opacity: 1;
+    right: 0%;
+    z-index: 1;
+}
+.l-out {
+    animation: l-out 2s;
+    opacity: 0;
+    right: 100%;
+    z-index: 1;
+}
+.l-in {
+    animation: l-in 2s;
+    opacity: 1;
+    left: 0%;
+    z-index: 1;
+}
+@keyframes l-out {
+    0%{
+        opacity: 1;
+        right: 0px;
+    }
+    99%{
+        opacity: 1;
+    }
+    100%{
+        right: 100%;
+        opacity: 0;
+    }
+}
+@keyframes l-in {
+    0%{
+        opacity: 0;
+        left: 100%;
+    }
+    1%{
+        opacity: 1;
+    }
+    100%{
+        left: 0%;
+        opacity: 1;
+    }
+}
+@keyframes r-out {
+    0%{
+        opacity: 1;
+        left: 0px;
+    }
+    99%{
+        opacity: 1;
+    }
+    100%{
+        left: 100%;
+        opacity: 0;
+    }
+}
+@keyframes r-in {
+    0%{
+        opacity: 0;
+        right: 100%;
+    }
+    1%{
+        opacity: 1;
+    }
+    100%{
+        right: 0%;
+        opacity: 1;
+    }
+}
