@@ -1,17 +1,15 @@
-let len = 6
-let current = 0
-for (let i=len-1; i>=0; i--){
-    let elm = document.createElement('div')
-    let img = document.createElement('img')
-    img.setAttribute('src', './slides/img'+i+'.jpg')
-    elm.setAttribute('id', i)
-    elm.appendChild(img)
-    elm.classList.add('slide')
-    document.getElementById('main').appendChild(elm);
-}
+let slides = document.querySelectorAll('.slide')
+let len = slides.length
+let current = len-1
+
+slides.forEach(slide => {
+    slide.setAttribute('id', current)
+    current--
+})
+current = 0
 
 document.getElementById('l-btn').addEventListener('click', ()=>{
-    document.querySelectorAll('.slide').forEach(slide => {
+    slides.forEach(slide => {
         slide.classList.remove('l-in', 'l-out', 'r-in', 'r-out')
     })
     document.getElementById(current).classList.add('l-out')
@@ -21,7 +19,7 @@ document.getElementById('l-btn').addEventListener('click', ()=>{
     document.getElementById('count').textContent = current+1;
 })
 document.getElementById('r-btn').addEventListener('click', ()=>{
-    document.querySelectorAll('.slide').forEach(slide => {
+    slides.forEach(slide => {
         slide.classList.remove('l-in', 'l-out', 'r-in', 'r-out')
     })
     document.getElementById(current).classList.add('r-out')
